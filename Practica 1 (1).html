@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Correo Electrónico</title>
+</head>
+<body>
+
+<script>
+    function esCorreoElectronico(cadena) {
+        if (!cadena.includes('@')) {
+            return false;
+        }
+
+        const terminacionesValidas = ['.com', '.com.mx', '.mx'];
+        for (const terminacion of terminacionesValidas) {
+            if (cadena.endsWith(terminacion)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function verificarCorreo() {
+        const cadenaIngresada = prompt("Ingrese una correo electronico:");
+        const resultado = esCorreoElectronico(cadenaIngresada);
+
+        if (resultado) {
+            alert("La cadena es un correo electrónico válido.");
+        } else {
+            alert("La cadena no es un correo electrónico válido.");
+        }
+    }
+
+
+    verificarCorreo();
+</script>
+
+</body>
+</html>
